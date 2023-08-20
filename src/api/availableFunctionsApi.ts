@@ -1,10 +1,13 @@
 import axiosClient from "./axiosClient";
-import {AvailableFunctionsResponse} from '../types/apiTypes'
 
 const availableFunctionsApi = {
-  getAvailableFunctions({userId}: {userId: number | null}) {
+  getAvailableFunctions({ userId }: { userId: number | null }) {
     const url = `get-available-functions/`;
-    return axiosClient.post(url, {user_id: userId});
+    return axiosClient.post(url, { user_id: userId });
+  },
+  getSetupFunction({ userId }: { userId: number | null }) {
+    const url = `set-up/?user_id=${userId}`;
+    return axiosClient.get(url);
   },
 };
 export default availableFunctionsApi;

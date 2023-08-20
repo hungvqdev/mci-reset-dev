@@ -5,28 +5,31 @@ import LocaleSwitcher from '../Multilingual/LocaleSwitcher';
 import { Navbar } from '../Navbar/Navbar';
 import ThemeToggle from '../DarkMode/ThemeToggle';
 import Sidebar from '../Sidebar/HomeSidebar';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { Button } from 'antd';
 import { PiList } from 'react-icons/pi';
 import Login from '@/components/auth/Login'
 import { getCookie } from 'cookies-next';
 import UserDropdown from '../auth/UserDropdown'
 import { User } from "@/types/userTypes"
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import { setIsAuth } from '@/features/authSlice';
 
 export function Header() {
   const [open, setOpen] = useState(false)
+  const dispatch = useDispatch();
   const [userData, setUserData] = useState<User | null>(null)
   const cookieData = getCookie('userData')
   const isAuth = useSelector((state: RootState) => state.auth)
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (cookieData) {
       setUserData(JSON.parse(cookieData as string))
+      dispatch(setIsAuth(true));
     }
-  }, [cookieData])
+  }, [cookieData, dispatch])
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-b-slate-200 bg-white dark:border-b-slate-700 dark:bg-slate-900">

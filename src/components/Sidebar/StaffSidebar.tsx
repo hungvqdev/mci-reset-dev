@@ -8,7 +8,7 @@ import { FaArrowLeft, FaArrowRight, FaRegGrinTongue, FaRegGrinTongueSquint } fro
 import ThemeToggle from "../DarkMode/ThemeToggle";
 import { FiLogOut, FiUser } from "react-icons/fi";
 import Image from "next/image";
-import { AiOutlineSetting } from "react-icons/ai";
+import { RiAdminLine } from "react-icons/ri";
 import Icons from "../Icon/Icons";
 import Logout from "../auth/Logout";
 import Link from "next/link";
@@ -29,7 +29,7 @@ const Sidebar: React.FC<SidebarProps> = ({ data }) => {
   };
 
   return (
-    <div style={{ width: 256 }}>
+    <div className={`${collapsed ? "w-20" : "w-64"} transition duration-700`}>
 
       <Menu mode="inline" inlineCollapsed={collapsed} className="h-screen flex flex-col justify-start">
         <Link href="/" className="w-full h-[70px] flex items-center px-6 drop-shadow-xl border-b  shadow-sm"><Image src='/favicon.ico' alt="logo" width={50} height={50} /> <div className={`${collapsed && "hidden"} text-2xl font-semibold mx-4`}>Zenix</div></Link>
@@ -44,6 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ data }) => {
             </Menu.SubMenu>
           ))}
         <div className="flex-1"></div>
+        <Menu.Item icon={<RiAdminLine />} ><Link href="/staff/admin">Administrator</Link></Menu.Item>
         <Menu.Item icon={<FiUser />} >Thông tin cá nhân</Menu.Item>
         <Menu.Item icon={<FiLogOut />} className="mb-3" onClick={() => setIsLogout(true)}>Đăng xuất</Menu.Item>
         <Logout isLogout={isLogout} setIsLogout={setIsLogout} />
