@@ -1,0 +1,21 @@
+{
+  "site": {
+    "title": "Zenix",
+    "desc": "Using Ant-Design 5 with Next.js 13 and Tailwind CSS"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "functionality": "Chức năng",
+    "teamMembers": "Thành viên",
+    "contact": "Liên hệ"
+  },
+  "teamMembers": {
+    "hr": "Phòng nhân sự",
+    "it": "Phòng CNTT",
+    "cskh": " Phòng CSKH"
+  },
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối"
+  }
+}

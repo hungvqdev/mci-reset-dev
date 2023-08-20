@@ -1,0 +1,21 @@
+{
+  "site": {
+    "title": "Zenix",
+    "desc": "Using Ant-Design 5 with Next.js 13 and Tailwind CSS"
+  },
+  "nav": {
+    "home": "Home",
+    "functionality": "Functionality",
+    "teamMembers": "Team Members",
+    "contact": "Contact"
+  },
+  "teamMembers": {
+    "hr": "HR Department",
+    "it": "IT Department",
+    "cskh": " Customer Care Department"
+  },
+  "theme": {
+    "light": "light",
+    "dark": "dark"
+  }
+}
